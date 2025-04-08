@@ -39,9 +39,9 @@ This includes logs such as but not limited to:
 For example:
 
 ```bash
-- Pi-hole Results are located at: [containers/pihole/results](https://github.com/Sm4all/SP-raw-data/tree/master/containers/pihole/results)
-- Minecraft Java Server Results are located at: [containers/Minecraft_Java_Server/results](https://github.com/Sm4all/SP-raw-data/tree/master/containers/Minecraft_Java_Server/results)
-- Traefik Results are located at: [containers/traefik_proxy/results](https://github.com/Sm4all/SP-raw-data/tree/master/containers/traefik_proxy/results)
+- Pi-hole Results are located at: containers/pihole/results
+- Minecraft Java Server Results are located at: containers/Minecraft_Java_Server/results
+- Traefik Results are located at: containers/traefik_proxy/results
 ```
 
 All results are fairly self-explanatory, and the implications and interpretations of these results are explained in this report.
