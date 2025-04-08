@@ -4,3 +4,6 @@ containers/open-webui/cypress
 containers/open-webui/scripts
 containers/open-webui/src
 containers/open-webui/static
+containers/pihole/etc-pihole/pihole-FTL.db
+containers/pihole/etc-pihole/pihole-FTL.db-shm
+containers/pihole/etc-pihole/pihole-FTL.db-wal

