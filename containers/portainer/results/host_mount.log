@@ -1,0 +1,1 @@
+[{"Type":"bind","Source":"/var/run/docker.sock","Destination":"/var/run/docker.sock","Mode":"rw","RW":true,"Propagation":"rprivate"},{"Type":"volume","Name":"portainer_data","Source":"/var/lib/docker/volumes/portainer_data/_data","Destination":"/data","Driver":"local","Mode":"z","RW":true,"Propagation":""}]

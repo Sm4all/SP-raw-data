@@ -1,0 +1,1 @@
+[{"Type":"bind","Source":"/home/ldeb/docker-research/containers/mc/mc-data","Destination":"/data","Mode":"","RW":true,"Propagation":"rprivate"}]

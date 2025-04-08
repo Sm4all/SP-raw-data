@@ -1,0 +1,2 @@
+ls: cannot access '/var/run/docker.sock': No such file or directory
+exit status 2

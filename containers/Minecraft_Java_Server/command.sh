@@ -1,0 +1,1 @@
+docker run -d -p 25565:25565 -e EULA=TRUE --name mc -v mc-data:/data itzg/minecraft-server

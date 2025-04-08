@@ -1,0 +1,1 @@
+[{"Type":"bind","Source":"/home/ldeb/docker-research/containers/website/nginx/default.conf","Destination":"/etc/nginx/nginx.conf","Mode":"ro","RW":false,"Propagation":"rprivate"}]

@@ -1,0 +1,1 @@
+[{"Type":"bind","Source":"/home/ldeb/docker-research/containers/website/frontend","Destination":"/app","Mode":"rw","RW":true,"Propagation":"rprivate"}]

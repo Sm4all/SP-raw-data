@@ -1,0 +1,2 @@
+exec /tmp/linpeas_fat.sh: no such file or directory
+exit status 255

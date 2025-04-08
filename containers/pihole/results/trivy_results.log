@@ -1,0 +1,345 @@
+2025-03-10T18:16:42Z	WARN	'--security-checks' is deprecated. Use '--scanners' instead.
+2025-03-10T18:16:42Z	INFO	[vuln] Vulnerability scanning is enabled
+2025-03-10T18:16:42Z	INFO	[misconfig] Misconfiguration scanning is enabled
+2025-03-10T18:16:43Z	INFO	Detected OS	family="alpine" version="3.19.7"
+2025-03-10T18:16:43Z	INFO	[alpine] Detecting vulnerabilities...	os_version="3.19" repository="3.19" pkg_num=84
+2025-03-10T18:16:43Z	INFO	Number of language-specific files	num=0
+2025-03-10T18:16:43Z	INFO	Detected config files	num=9
+2025-03-10T18:16:43Z	WARN	Using severities from other vendors for some vulnerabilities. Read https://aquasecurity.github.io/trivy/v0.59/docs/scanner/vulnerability#severity-selection for details.
+
+pihole/pihole:latest (alpine 3.19.7)
+====================================
+Total: 2 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 2, CRITICAL: 0)
+
+┌─────────┬────────────────┬──────────┬────────┬───────────────────┬───────────────┬─────────────────────────────────────────────────────────────┐
+│ Library │ Vulnerability  │ Severity │ Status │ Installed Version │ Fixed Version │                            Title                            │
+├─────────┼────────────────┼──────────┼────────┼───────────────────┼───────────────┼─────────────────────────────────────────────────────────────┤
+│ libxml2 │ CVE-2024-56171 │ HIGH     │ fixed  │ 2.11.8-r0         │ 2.11.8-r1     │ libxml2: Use-After-Free in libxml2                          │
+│         │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2024-56171                  │
+│         ├────────────────┤          │        │                   │               ├─────────────────────────────────────────────────────────────┤
+│         │ CVE-2025-24928 │          │        │                   │               │ libxml2: Stack-based buffer overflow in xmlSnprintfElements │
+│         │                │          │        │                   │               │ of libxml2                                                  │
+│         │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-24928                  │
+└─────────┴────────────────┴──────────┴────────┴───────────────────┴───────────────┴─────────────────────────────────────────────────────────────┘
+
+etc/.pihole/test/_centos_9.Dockerfile (dockerfile)
+==================================================
+Tests: 28 (SUCCESSES: 24, FAILURES: 4)
+Failures: 4 (UNKNOWN: 0, LOW: 2, MEDIUM: 0, HIGH: 2, CRITICAL: 0)
+
+AVD-DS-0002 (HIGH): Specify at least 1 USER command in Dockerfile with non-root user as argument
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.
+
+See https://avd.aquasec.com/misconfig/ds002
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+AVD-DS-0005 (LOW): Consider using 'COPY . $GITDIR' command instead of 'ADD . $GITDIR'
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+You should use COPY instead of ADD unless you want to extract a tar file. Note that an ADD command will extract a tar file, which adds the risk of Zip-based vulnerabilities. Accordingly, it is advised to use a COPY command, which does not extract tar files.
+
+See https://avd.aquasec.com/misconfig/ds005
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ etc/.pihole/test/_centos_9.Dockerfile:10
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  10 [ ADD . $GITDIR
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+AVD-DS-0015 (HIGH): 'yum clean all' is missed: yum install -y --allowerasing curl git initscripts
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+You should use 'yum clean all' after using a 'yum install' command to clean package cached data and reduce image size.
+
+See https://avd.aquasec.com/misconfig/ds015
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ etc/.pihole/test/_centos_9.Dockerfile:4
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   4 [ RUN yum install -y --allowerasing curl git initscripts
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+AVD-DS-0026 (LOW): Add HEALTHCHECK instruction in your Dockerfile
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.
+
+See https://avd.aquasec.com/misconfig/ds026
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+etc/.pihole/test/_debian_11.Dockerfile (dockerfile)
+===================================================
+Tests: 28 (SUCCESSES: 25, FAILURES: 3)
+Failures: 3 (UNKNOWN: 0, LOW: 2, MEDIUM: 0, HIGH: 1, CRITICAL: 0)
+
+AVD-DS-0002 (HIGH): Specify at least 1 USER command in Dockerfile with non-root user as argument
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.
+
+See https://avd.aquasec.com/misconfig/ds002
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+AVD-DS-0005 (LOW): Consider using 'COPY . $GITDIR' command instead of 'ADD . $GITDIR'
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+You should use COPY instead of ADD unless you want to extract a tar file. Note that an ADD command will extract a tar file, which adds the risk of Zip-based vulnerabilities. Accordingly, it is advised to use a COPY command, which does not extract tar files.
+
+See https://avd.aquasec.com/misconfig/ds005
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ etc/.pihole/test/_debian_11.Dockerfile:7
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   7 [ ADD . $GITDIR
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+AVD-DS-0026 (LOW): Add HEALTHCHECK instruction in your Dockerfile
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.
+
+See https://avd.aquasec.com/misconfig/ds026
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+etc/.pihole/test/_debian_12.Dockerfile (dockerfile)
+===================================================
+Tests: 28 (SUCCESSES: 25, FAILURES: 3)
+Failures: 3 (UNKNOWN: 0, LOW: 2, MEDIUM: 0, HIGH: 1, CRITICAL: 0)
+
+AVD-DS-0002 (HIGH): Specify at least 1 USER command in Dockerfile with non-root user as argument
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.
+
+See https://avd.aquasec.com/misconfig/ds002
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+AVD-DS-0005 (LOW): Consider using 'COPY . $GITDIR' command instead of 'ADD . $GITDIR'
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+You should use COPY instead of ADD unless you want to extract a tar file. Note that an ADD command will extract a tar file, which adds the risk of Zip-based vulnerabilities. Accordingly, it is advised to use a COPY command, which does not extract tar files.
+
+See https://avd.aquasec.com/misconfig/ds005
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ etc/.pihole/test/_debian_12.Dockerfile:7
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   7 [ ADD . $GITDIR
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+AVD-DS-0026 (LOW): Add HEALTHCHECK instruction in your Dockerfile
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.
+
+See https://avd.aquasec.com/misconfig/ds026
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+etc/.pihole/test/_fedora_40.Dockerfile (dockerfile)
+===================================================
+Tests: 28 (SUCCESSES: 24, FAILURES: 4)
+Failures: 4 (UNKNOWN: 0, LOW: 2, MEDIUM: 0, HIGH: 2, CRITICAL: 0)
+
+AVD-DS-0002 (HIGH): Specify at least 1 USER command in Dockerfile with non-root user as argument
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.
+
+See https://avd.aquasec.com/misconfig/ds002
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+AVD-DS-0005 (LOW): Consider using 'COPY . $GITDIR' command instead of 'ADD . $GITDIR'
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+You should use COPY instead of ADD unless you want to extract a tar file. Note that an ADD command will extract a tar file, which adds the risk of Zip-based vulnerabilities. Accordingly, it is advised to use a COPY command, which does not extract tar files.
+
+See https://avd.aquasec.com/misconfig/ds005
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ etc/.pihole/test/_fedora_40.Dockerfile:8
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   8 [ ADD . $GITDIR
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+AVD-DS-0019 (HIGH): 'dnf clean all' is missed: dnf install -y git initscripts
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Cached package data should be cleaned after installation to reduce image size.
+
+See https://avd.aquasec.com/misconfig/ds019
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ etc/.pihole/test/_fedora_40.Dockerfile:2
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   2 [ RUN dnf install -y git initscripts
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+AVD-DS-0026 (LOW): Add HEALTHCHECK instruction in your Dockerfile
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.
+
+See https://avd.aquasec.com/misconfig/ds026
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+etc/.pihole/test/_fedora_41.Dockerfile (dockerfile)
+===================================================
+Tests: 28 (SUCCESSES: 24, FAILURES: 4)
+Failures: 4 (UNKNOWN: 0, LOW: 2, MEDIUM: 0, HIGH: 2, CRITICAL: 0)
+
+AVD-DS-0002 (HIGH): Specify at least 1 USER command in Dockerfile with non-root user as argument
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.
+
+See https://avd.aquasec.com/misconfig/ds002
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+AVD-DS-0005 (LOW): Consider using 'COPY . $GITDIR' command instead of 'ADD . $GITDIR'
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+You should use COPY instead of ADD unless you want to extract a tar file. Note that an ADD command will extract a tar file, which adds the risk of Zip-based vulnerabilities. Accordingly, it is advised to use a COPY command, which does not extract tar files.
+
+See https://avd.aquasec.com/misconfig/ds005
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ etc/.pihole/test/_fedora_41.Dockerfile:8
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   8 [ ADD . $GITDIR
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+AVD-DS-0019 (HIGH): 'dnf clean all' is missed: dnf install -y git initscripts
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Cached package data should be cleaned after installation to reduce image size.
+
+See https://avd.aquasec.com/misconfig/ds019
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ etc/.pihole/test/_fedora_41.Dockerfile:2
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   2 [ RUN dnf install -y git initscripts
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+AVD-DS-0026 (LOW): Add HEALTHCHECK instruction in your Dockerfile
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.
+
+See https://avd.aquasec.com/misconfig/ds026
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+etc/.pihole/test/_ubuntu_20.Dockerfile (dockerfile)
+===================================================
+Tests: 28 (SUCCESSES: 25, FAILURES: 3)
+Failures: 3 (UNKNOWN: 0, LOW: 2, MEDIUM: 0, HIGH: 1, CRITICAL: 0)
+
+AVD-DS-0002 (HIGH): Specify at least 1 USER command in Dockerfile with non-root user as argument
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.
+
+See https://avd.aquasec.com/misconfig/ds002
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+AVD-DS-0005 (LOW): Consider using 'COPY . $GITDIR' command instead of 'ADD . $GITDIR'
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+You should use COPY instead of ADD unless you want to extract a tar file. Note that an ADD command will extract a tar file, which adds the risk of Zip-based vulnerabilities. Accordingly, it is advised to use a COPY command, which does not extract tar files.
+
+See https://avd.aquasec.com/misconfig/ds005
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ etc/.pihole/test/_ubuntu_20.Dockerfile:7
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   7 [ ADD . $GITDIR
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+AVD-DS-0026 (LOW): Add HEALTHCHECK instruction in your Dockerfile
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.
+
+See https://avd.aquasec.com/misconfig/ds026
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+etc/.pihole/test/_ubuntu_22.Dockerfile (dockerfile)
+===================================================
+Tests: 28 (SUCCESSES: 25, FAILURES: 3)
+Failures: 3 (UNKNOWN: 0, LOW: 2, MEDIUM: 0, HIGH: 1, CRITICAL: 0)
+
+AVD-DS-0002 (HIGH): Specify at least 1 USER command in Dockerfile with non-root user as argument
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.
+
+See https://avd.aquasec.com/misconfig/ds002
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+AVD-DS-0005 (LOW): Consider using 'COPY . $GITDIR' command instead of 'ADD . $GITDIR'
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+You should use COPY instead of ADD unless you want to extract a tar file. Note that an ADD command will extract a tar file, which adds the risk of Zip-based vulnerabilities. Accordingly, it is advised to use a COPY command, which does not extract tar files.
+
+See https://avd.aquasec.com/misconfig/ds005
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ etc/.pihole/test/_ubuntu_22.Dockerfile:7
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   7 [ ADD . $GITDIR
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+AVD-DS-0026 (LOW): Add HEALTHCHECK instruction in your Dockerfile
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.
+
+See https://avd.aquasec.com/misconfig/ds026
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+etc/.pihole/test/_ubuntu_24.Dockerfile (dockerfile)
+===================================================
+Tests: 28 (SUCCESSES: 25, FAILURES: 3)
+Failures: 3 (UNKNOWN: 0, LOW: 2, MEDIUM: 0, HIGH: 1, CRITICAL: 0)
+
+AVD-DS-0002 (HIGH): Specify at least 1 USER command in Dockerfile with non-root user as argument
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.
+
+See https://avd.aquasec.com/misconfig/ds002
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+AVD-DS-0005 (LOW): Consider using 'COPY . $GITDIR' command instead of 'ADD . $GITDIR'
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+You should use COPY instead of ADD unless you want to extract a tar file. Note that an ADD command will extract a tar file, which adds the risk of Zip-based vulnerabilities. Accordingly, it is advised to use a COPY command, which does not extract tar files.
+
+See https://avd.aquasec.com/misconfig/ds005
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ etc/.pihole/test/_ubuntu_24.Dockerfile:7
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   7 [ ADD . $GITDIR
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+AVD-DS-0026 (LOW): Add HEALTHCHECK instruction in your Dockerfile
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.
+
+See https://avd.aquasec.com/misconfig/ds026
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+var/www/html/admin/.devcontainer/Dockerfile (dockerfile)
+========================================================
+Tests: 28 (SUCCESSES: 27, FAILURES: 1)
+Failures: 1 (UNKNOWN: 0, LOW: 1, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
+
+AVD-DS-0026 (LOW): Add HEALTHCHECK instruction in your Dockerfile
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.
+
+See https://avd.aquasec.com/misconfig/ds026
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+

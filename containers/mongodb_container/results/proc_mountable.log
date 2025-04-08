@@ -1,0 +1,25 @@
+959 818 0:52 / / rw,relatime - overlay overlay rw,lowerdir=/var/lib/docker/overlay2/l/KRP5A7BNLOJRS2LCRYHWNROISP:/var/lib/docker/overlay2/l/WHCWRKMO4TUFOIWGF65QQO3JOJ:/var/lib/docker/overlay2/l/R6EULRDR5M7OZXHYSCJACCJMXY:/var/lib/docker/overlay2/l/3BE5NTWWRD7ISLDCL3TOBDKOVA:/var/lib/docker/overlay2/l/V5OQQ5QMAMALUCQJHLATRA22H2:/var/lib/docker/overlay2/l/XIPBGXZG2LBVFNFUXOBEFVQQ6T:/var/lib/docker/overlay2/l/WHOA7LZNRSMT4GJZL6BANNX2VE:/var/lib/docker/overlay2/l/CKXSFDV53DI6B3ZRME4EAJ5BSE:/var/lib/docker/overlay2/l/LQWP647E4Q3PDXQZYJN6RJ55MD,upperdir=/var/lib/docker/overlay2/7a1c32e9eb17a7639210b7d43548add5b7fbf38eaf21cee48d99eb4e53116ec8/diff,workdir=/var/lib/docker/overlay2/7a1c32e9eb17a7639210b7d43548add5b7fbf38eaf21cee48d99eb4e53116ec8/work
+961 959 0:78 / /proc rw,nosuid,nodev,noexec,relatime - proc proc rw
+962 959 0:79 / /dev rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64
+963 962 0:80 / /dev/pts rw,nosuid,noexec,relatime - devpts devpts rw,gid=5,mode=620,ptmxmode=666
+964 959 0:85 / /sys ro,nosuid,nodev,noexec,relatime - sysfs sysfs ro
+965 964 0:27 / /sys/fs/cgroup ro,nosuid,nodev,noexec,relatime - cgroup2 cgroup rw,nsdelegate,memory_recursiveprot
+966 962 0:76 / /dev/mqueue rw,nosuid,nodev,noexec,relatime - mqueue mqueue rw
+967 962 0:86 / /dev/shm rw,nosuid,nodev,noexec,relatime - tmpfs shm rw,size=65536k,inode64
+968 959 259:5 /var/lib/docker/volumes/website_mongodb_data/_data /data/db rw,noatime master:1 - ext4 /dev/nvme0n1p5 rw,discard
+969 959 259:5 /var/lib/docker/volumes/c05b3df8171127fd14218202ea4d3d42cdbafc7d41566a50625a2d3df365f38d/_data /data/configdb rw,noatime master:1 - ext4 /dev/nvme0n1p5 rw,discard
+970 959 259:5 /var/lib/docker/containers/ef2bee092771a65cfad3254512cb55320969a4b0be8842b8d76afedea41c10ec/resolv.conf /etc/resolv.conf rw,noatime - ext4 /dev/nvme0n1p5 rw,discard
+971 959 259:5 /var/lib/docker/containers/ef2bee092771a65cfad3254512cb55320969a4b0be8842b8d76afedea41c10ec/hostname /etc/hostname rw,noatime - ext4 /dev/nvme0n1p5 rw,discard
+972 959 259:5 /var/lib/docker/containers/ef2bee092771a65cfad3254512cb55320969a4b0be8842b8d76afedea41c10ec/hosts /etc/hosts rw,noatime - ext4 /dev/nvme0n1p5 rw,discard
+819 961 0:78 /bus /proc/bus ro,nosuid,nodev,noexec,relatime - proc proc rw
+820 961 0:78 /fs /proc/fs ro,nosuid,nodev,noexec,relatime - proc proc rw
+821 961 0:78 /irq /proc/irq ro,nosuid,nodev,noexec,relatime - proc proc rw
+822 961 0:78 /sys /proc/sys ro,nosuid,nodev,noexec,relatime - proc proc rw
+823 961 0:78 /sysrq-trigger /proc/sysrq-trigger ro,nosuid,nodev,noexec,relatime - proc proc rw
+824 961 0:87 / /proc/asound ro,relatime - tmpfs tmpfs ro,inode64
+825 961 0:88 / /proc/acpi ro,relatime - tmpfs tmpfs ro,inode64
+826 961 0:79 /null /proc/kcore rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64
+836 961 0:79 /null /proc/keys rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64
+916 961 0:79 /null /proc/timer_list rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64
+917 964 0:96 / /sys/firmware ro,relatime - tmpfs tmpfs ro,inode64
+918 964 0:98 / /sys/devices/virtual/powercap ro,relatime - tmpfs tmpfs ro,inode64

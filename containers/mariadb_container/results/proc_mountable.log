@@ -1,0 +1,24 @@
+895 771 0:50 / / rw,relatime - overlay overlay rw,lowerdir=/var/lib/docker/overlay2/l/QJSJ4MSB5EPBUIB3PFQ7JRE2ER:/var/lib/docker/overlay2/l/DKNPPX2Y6OY5WDM46AFODZOZ76:/var/lib/docker/overlay2/l/J3AMPCDU3M3S3VZBDMMBYXH2ZY:/var/lib/docker/overlay2/l/NYFNGZ4XURD34UGHHYYB2HAP4H:/var/lib/docker/overlay2/l/BYVWAARQSGY3NKPTFY47UPDDZY:/var/lib/docker/overlay2/l/OZGEOBURJWIZZQV5RU2I7Y5HSN:/var/lib/docker/overlay2/l/B6UNN3H6PLG6V4M3GRH3DXX5RZ:/var/lib/docker/overlay2/l/XOAXJU3K2SMZU6YVAFYOPBLTZQ:/var/lib/docker/overlay2/l/LQWP647E4Q3PDXQZYJN6RJ55MD,upperdir=/var/lib/docker/overlay2/dadf0eb1a42625c66432505aeefd854c336ab2283760ff1f1808bb5389dca9a4/diff,workdir=/var/lib/docker/overlay2/dadf0eb1a42625c66432505aeefd854c336ab2283760ff1f1808bb5389dca9a4/work
+897 895 0:77 / /proc rw,nosuid,nodev,noexec,relatime - proc proc rw
+898 895 0:78 / /dev rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64
+899 898 0:79 / /dev/pts rw,nosuid,noexec,relatime - devpts devpts rw,gid=5,mode=620,ptmxmode=666
+900 895 0:80 / /sys ro,nosuid,nodev,noexec,relatime - sysfs sysfs ro
+901 900 0:27 / /sys/fs/cgroup ro,nosuid,nodev,noexec,relatime - cgroup2 cgroup rw,nsdelegate,memory_recursiveprot
+902 898 0:68 / /dev/mqueue rw,nosuid,nodev,noexec,relatime - mqueue mqueue rw
+903 898 0:85 / /dev/shm rw,nosuid,nodev,noexec,relatime - tmpfs shm rw,size=65536k,inode64
+904 895 259:5 /var/lib/docker/containers/65884def4dfb22d3c3f921e10f72768b2d15196b97c445519bf8eba94b1515ea/resolv.conf /etc/resolv.conf rw,noatime - ext4 /dev/nvme0n1p5 rw,discard
+916 895 259:5 /var/lib/docker/containers/65884def4dfb22d3c3f921e10f72768b2d15196b97c445519bf8eba94b1515ea/hostname /etc/hostname rw,noatime - ext4 /dev/nvme0n1p5 rw,discard
+997 895 259:5 /var/lib/docker/containers/65884def4dfb22d3c3f921e10f72768b2d15196b97c445519bf8eba94b1515ea/hosts /etc/hosts rw,noatime - ext4 /dev/nvme0n1p5 rw,discard
+998 895 259:5 /var/lib/docker/volumes/website_db_data/_data /var/lib/mysql rw,noatime master:1 - ext4 /dev/nvme0n1p5 rw,discard
+772 897 0:77 /bus /proc/bus ro,nosuid,nodev,noexec,relatime - proc proc rw
+773 897 0:77 /fs /proc/fs ro,nosuid,nodev,noexec,relatime - proc proc rw
+774 897 0:77 /irq /proc/irq ro,nosuid,nodev,noexec,relatime - proc proc rw
+775 897 0:77 /sys /proc/sys ro,nosuid,nodev,noexec,relatime - proc proc rw
+776 897 0:77 /sysrq-trigger /proc/sysrq-trigger ro,nosuid,nodev,noexec,relatime - proc proc rw
+777 897 0:86 / /proc/asound ro,relatime - tmpfs tmpfs ro,inode64
+778 897 0:87 / /proc/acpi ro,relatime - tmpfs tmpfs ro,inode64
+779 897 0:78 /null /proc/kcore rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64
+780 897 0:78 /null /proc/keys rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64
+784 897 0:78 /null /proc/timer_list rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64
+794 900 0:88 / /sys/firmware ro,relatime - tmpfs tmpfs ro,inode64
+816 900 0:89 / /sys/devices/virtual/powercap ro,relatime - tmpfs tmpfs ro,inode64

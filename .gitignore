@@ -1,0 +1,6 @@
+containers/open-webui/backend
+containers/open-webui/kubernetes
+containers/open-webui/cypress
+containers/open-webui/scripts
+containers/open-webui/src
+containers/open-webui/static

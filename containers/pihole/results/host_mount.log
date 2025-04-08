@@ -1,0 +1,1 @@
+[{"Type":"bind","Source":"/home/ldeb/docker-research/containers/pihole/etc-pihole","Destination":"/etc/pihole","Mode":"rw","RW":true,"Propagation":"rprivate"},{"Type":"bind","Source":"/home/ldeb/docker-research/containers/pihole/etc-dnsmasq.d","Destination":"/etc/dnsmasq.d","Mode":"rw","RW":true,"Propagation":"rprivate"}]
