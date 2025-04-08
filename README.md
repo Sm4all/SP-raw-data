@@ -50,4 +50,4 @@ All results are fairly self-explanatory, and the implications and interpretation
 
 - If more information is needed about the results, please view the document [Testing.html](https://github.com/Sm4all/SP-raw-data/blob/master/Testing.html) to view more information and a table of results.
 - This document was originally written in notion and exported as a HTML file rather than a Markdown file due to the size of tables included.
-- This document contains the rough notes while results were being gathered..
+- This document contains the rough notes while results were being gathered.
